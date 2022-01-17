@@ -1,3 +1,34 @@
 // Place all the styles related to the servers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+main{
+  width: 840px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 70px 0;
+}
+
+.subject-index{
+  width: 600px;
+}
+
+.subject-heading{
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.content{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: flex-start;
+}

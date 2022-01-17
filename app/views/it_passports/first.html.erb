@@ -1,0 +1,77 @@
+<div id="question">qqq</div>
+<button type="button"></button>
+<button type="button"></button>
+
+<script>
+    const quiz = [
+        {
+            question: '１より2の方が大きい',
+            answers: [
+                '◯',
+                '×'
+            ],
+            correct: '◯'
+        },{
+            question: '１より１０の方が大きい',
+            answers: [
+                '◯',
+                '×'
+            ],
+            correct: '◯'
+        },{
+            question: '１より０の方が大きい',
+            answers: [
+                '◯',
+                '×'
+            ],
+            correct: '×'
+        }
+    ];
+    const quizLength = quiz.length;
+    let quizIndex = 0;
+    let score = 0;
+
+
+    // HTNLの変数は$を頭につける
+    const $button = document.getElementsByTagName('button');
+    const buttonLength = $button.length;
+
+    // 問題をHTMLに表示
+    const setquestion = () => {
+        document.getElementById('question').textContent = quiz[quizIndex].question
+        let buttonIndex = 0;
+        while(buttonIndex < buttonLength){
+            $button[buttonIndex].textContent = quiz[quizIndex].answers[buttonIndex];
+            buttonIndex++;
+        }
+    }
+
+    setquestion();
+
+
+    const clickHandler = (e) => {
+        if(quiz[quizIndex].correct === e.target.textContent){
+            window.alert('正解');
+            score++;
+        } else {
+            window.alert('不正解');
+        }
+        quizIndex++;
+        if(quizIndex < quizLength){
+            // 問題がまだある
+            setquestion();
+        } else {
+            // 問題がもうない
+            window.alert('終了。あなたの正解数は' + score + '問です');
+        }
+    }
+
+    let handlerIndex = 0;
+    while (handlerIndex < buttonLength){
+        $button[handlerIndex].addEventListener('click', (e) => {
+            clickHandler(e);
+        });
+        handlerIndex++;
+    }
+
+</script>
